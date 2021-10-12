@@ -3,9 +3,9 @@
 import numpy as np
 
 def calculate(ratio, term1, numTerms):
-    ''' Parameters: Float ratio of series, Float first term, Integer number of terms
-        Return: String sequence of terms, String equation of series
-        Description: Calculate the first n terms of a geometric series '''
+    ''' Description: Calculate the first n terms of a geometric series
+        Parameters: Float ratio of series, Float first term, Integer number of terms
+        Return: String sequence of terms, String equation of series '''
     # Generate the terms
     indices = np.arange(1, numTerms + 1)
     terms = term1 * ratio ** (indices - 1)
@@ -23,6 +23,15 @@ def calculate(ratio, term1, numTerms):
     return sequenceString, equationString
 
 
+def sum(ratio, term1, numTerms):
+    ''' Description: Calculate the sum of the first n terms of a geometric series
+        Parameters: Float ratio of series, Float first term, Integer number of terms
+        Return: Float sum of the first n terms '''
+    sum = term1 * (1 - ratio ** numTerms)
+    sum /= (1 - ratio)
+    return sum
+
+
 def main():
     # INPUT
     ratio = float(input("Enter the ratio: "))
@@ -31,9 +40,11 @@ def main():
 
     # CALCULATIONS
     sequenceString, equationString = calculate(ratio, term1, numTerms)
+    seriesSum = sum(ratio, term1, numTerms)
 
     # OUTPUT
     print("The first", numTerms, "terms of", equationString, "are:")
     print(sequenceString)
+    print("The sum of the first", numTerms, "is", seriesSum)
 
 main()
