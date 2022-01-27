@@ -50,7 +50,9 @@ def poly_eval(coeffs, inputs):
     Parameters: Void
     Return: Array outputs
     '''
-    outputs = np.array([])
+    outputs =coeffs[0] * inputs ** 0
+    for i in range(1, len(coeffs)):
+        outputs = outputs + coeffs[i] * inputs ** i
     return outputs
 
 def poly_diff():
@@ -83,9 +85,18 @@ def test_poly_to_str():
     print(poly_to_str(np.array([1, -2, 0, 0, 5])) == '(5)x^4 + (-2)x^1 + 1')
 
 
+def test_poly_eval():
+    print(poly_eval(np.array([0]), np.array([1, 2, 3])) == np.array([0, 0, 0]))
+    print(poly_eval(np.array([0, 1]), np.array([1, 2, 3])) == np.array([1, 2, 3]))
+    print(poly_eval(np.array([1, 2]), np.array([1, 2, 3])) == np.array([3, 5, 7]))
+    print(poly_eval(np.array([3, 2, 1]), np.array([1, 2, 3])) == np.array([6, 11, 18]))
+
+
 def test():
     print("poly_to_str")
     test_poly_to_str()
+    print("\npoly_eval")
+    test_poly_eval()
 
 
 def run():
