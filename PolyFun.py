@@ -37,8 +37,8 @@ def poly_to_str(coeffs):
     '''
     equation = ''
     for i in range(len(coeffs)):
-        if coeffs[i] != 0:
-            if i == 0:
+        if coeffs[i] != 0:  # Skip if coefficient is 0
+            if i == 0:      # No x or () if coef for x^0
                 equation = str(coeffs[i])
             else:
                 equation = '(' + str(coeffs[i]) + ')x^' + str(i) + " + " + equation
@@ -46,12 +46,12 @@ def poly_to_str(coeffs):
 
 def poly_eval(coeffs, inputs):
     '''
-    Description:
-    Parameters: Void
+    Description: Calculates the outputs of the polynomial.
+    Parameters: Array coefficients, Array inputs
     Return: Array outputs
     '''
-    outputs =coeffs[0] * inputs ** 0
-    for i in range(1, len(coeffs)):
+    outputs = coeffs[0] * inputs ** 0   # Coef for x^0
+    for i in range(1, len(coeffs)):     # Iterate over remaining coeffecients
         outputs = outputs + coeffs[i] * inputs ** i
     return outputs
 
