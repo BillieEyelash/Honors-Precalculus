@@ -22,11 +22,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ## FUNCTIONS
-"""
+'''
 creates a string representation of the polynomial equation
 parameter: polynomial coefficient array
 returns: string representation of the equation
-"""
+'''
 # TODO: write this function and the others, adding parameters as required
 # TODO: write docstrings for all the functions using the template above
 def poly_to_str(coeffs):
@@ -41,7 +41,7 @@ def poly_to_str(coeffs):
             if i == 0:      # No x or () if coef for x^0
                 equation = str(coeffs[i])
             else:
-                equation = '(' + str(coeffs[i]) + ')x^' + str(i) + " + " + equation
+                equation = '(' + str(coeffs[i]) + ')x^' + str(i) + ' + ' + equation
     return equation
 
 def poly_eval(coeffs, inputs):
@@ -61,12 +61,8 @@ def poly_diff(coeffs):
     Parameters: Array coeffiecients of polynomial
     Return: Array coefficients of derivative
     '''
-    deriv = np.array([])
-    for i in range(len(coeffs)):
-        if i == 0:  	# Becomes 0 so don't include
-            continue
-        else:           # Use power rule to find new coefficient
-            deriv.append(i * coeffs[i])
+    deriv = coeffs * np.arange(len(coeffs))
+    deriv = np.delete(deriv, 0)
     return deriv
 
 def get_coeffs():
@@ -89,19 +85,26 @@ def test_poly_to_str():
     print(poly_to_str(np.array([0])) == '')
     print(poly_to_str(np.array([1, -2, 0, 0, 5])) == '(5)x^4 + (-2)x^1 + 1')
 
-
 def test_poly_eval():
     print(poly_eval(np.array([0]), np.array([1, 2, 3])) == np.array([0, 0, 0]))
     print(poly_eval(np.array([0, 1]), np.array([1, 2, 3])) == np.array([1, 2, 3]))
     print(poly_eval(np.array([1, 2]), np.array([1, 2, 3])) == np.array([3, 5, 7]))
     print(poly_eval(np.array([3, 2, 1]), np.array([1, 2, 3])) == np.array([6, 11, 18]))
 
+def test_poly_diff():
+    print(poly_diff(np.array([0])) == np.array([]))
+    print(poly_diff(np.array([0, 1])) == np.array([1]))
+    print(poly_diff(np.array([1, 2])) == np.array([2]))
+    print(poly_diff(np.array([3, 2, 1])) == np.array([2, 2]))
+    print(poly_diff(np.array([3, 2, 1, -3])) == np.array([2, 2, -9]))
 
 def test():
-    print("poly_to_str")
+    print('poly_to_str')
     test_poly_to_str()
-    print("\npoly_eval")
+    print('\npoly_eval')
     test_poly_eval()
+    print('\npoly_diff')
+    test_poly_diff()
 
 
 def run():
