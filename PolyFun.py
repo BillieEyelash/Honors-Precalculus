@@ -115,20 +115,20 @@ def run():
 
     ## CALCULATIONS
     # Create a string to display the equation of the polynomial
-    # Use a loop to do this so it works for any degree polynomial
     eqn = poly_to_str(coeffs)
 
-    # Generate the points on the curve over the domain xMin to xMax
-    # Use a loop through the coeffecients so it works for any degree,
-    # but also use array operations so you DON'T have to loop through the x-values
+    # Generate the points on the curve over the domain xMin to xMax for polynomial and derivative
     x = np.linspace(xMin, xMax, numPts)
     y = poly_eval(coeffs, x)
+
+    deriv = poly_diff(coeffs)
+    yd = poly_eval(deriv, x)
 
     ## OUTPUT
     print(eqn)  # Print the equation to the console
 
-    # Plot the polynomial
-    plt.plot(x, y)
+    plt.plot(x, y)  # Plot the polynomial
+    plt.plot(x, yd) # Plot the derivative
     plt.grid(True)
     plt.show()
     # plt.ylim(-5, 5)   # Uncomment if you need to adjust the y-scale of your plot
