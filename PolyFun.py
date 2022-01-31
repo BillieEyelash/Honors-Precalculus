@@ -55,14 +55,19 @@ def poly_eval(coeffs, inputs):
         outputs = outputs + coeffs[i] * inputs ** i
     return outputs
 
-def poly_diff():
+def poly_diff(coeffs):
     '''
-    Description:
-    Parameters: Void
-    Return: Array
+    Description: Find the derivative of a polynomial
+    Parameters: Array coeffiecients of polynomial
+    Return: Array coefficients of derivative
     '''
-    myArray = np.array([])
-    return myArray
+    deriv = np.array([])
+    for i in range(len(coeffs)):
+        if i == 0:  	# Becomes 0 so don't include
+            continue
+        else:           # Use power rule to find new coefficient
+            deriv.append(i * coeffs[i])
+    return deriv
 
 def get_coeffs():
     '''
@@ -114,13 +119,13 @@ def run():
     ## CALCULATIONS
     # Create a string to display the equation of the polynomial
     # Use a loop to do this so it works for any degree polynomial
-    eqn = "P(x) = a0 + a1*x + ..."
+    eqn = poly_to_str(coeffs)
 
     # Generate the points on the curve over the domain xMin to xMax
     # Use a loop through the coeffecients so it works for any degree,
     # but also use array operations so you DON'T have to loop through the x-values
-    x = np.array([1, 2, 3, 4, 5]);
-    y = x + 1;
+    x = np.array([1, 2, 3, 4, 5])
+    y = x + 1
 
     ## OUTPUT
     print(eqn)  # Print the equation to the console
