@@ -33,9 +33,14 @@ def poly_to_str(coeffs):
     for i in range(len(coeffs)):
         if coeffs[i] != 0:  # Skip if coefficient is 0
             if i == 0:      # No x or () if coef for x^0
-                equation = str(coeffs[i])
+                string = str(coeffs[i])
             else:
-                equation = '(' + str(coeffs[i]) + ')x^' + str(i) + ' + ' + equation
+                string = '(' + str(coeffs[i]) + ')x^' + str(i)
+
+            if len(equation) != 0:    # No plus if length of equation == 0
+                equation = string + ' + ' + equation
+            else:
+                equation = string
     return equation
 
 def poly_eval(coeffs, inputs):
@@ -78,6 +83,7 @@ def test_poly_to_str():
     print(poly_to_str(np.array([1, -2, 0, -4, 0])) == '(-4)x^3 + (-2)x^1 + 1')
     print(poly_to_str(np.array([0])) == '')
     print(poly_to_str(np.array([1, -2, 0, 0, 5])) == '(5)x^4 + (-2)x^1 + 1')
+    print(poly_to_str(np.array([0, 0, 5])) == '(5)x^2')
 
 def test_poly_eval():
     print(poly_eval(np.array([0]), np.array([1, 2, 3])) == np.array([0, 0, 0]))
@@ -106,7 +112,7 @@ def run():
 
     # Coefficients of polynomial from 0th to nth; eventually this will be replaced
     # by a call to get_coeffs()
-    coeffs = np.array([2, -10, .5, .25])
+    coeffs = np.array([0, 0, 1])
 
     # Parameters for plotting
     xMin = -10
@@ -133,4 +139,4 @@ def run():
     plt.show()
     # plt.ylim(-5, 5)   # Uncomment if you need to adjust the y-scale of your plot
 
-run()
+test()
