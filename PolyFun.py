@@ -1,5 +1,5 @@
 ## Ria Talwar, m d, 2022
-## Brief description of program
+## Find the derivative of a polynomial
 
 '''
 1.  Add to the program outlined below so it prints the equation of the polynomial
@@ -22,13 +22,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ## FUNCTIONS
-'''
-creates a string representation of the polynomial equation
-parameter: polynomial coefficient array
-returns: string representation of the equation
-'''
-# TODO: write this function and the others, adding parameters as required
-# TODO: write docstrings for all the functions using the template above
+
 def poly_to_str(coeffs):
     '''
     Description: Creates a string representation of the polynomial equation
@@ -127,16 +121,16 @@ def run():
     # Generate the points on the curve over the domain xMin to xMax
     # Use a loop through the coeffecients so it works for any degree,
     # but also use array operations so you DON'T have to loop through the x-values
-    x = np.array([1, 2, 3, 4, 5])
-    y = x + 1
+    x = np.linspace(xMin, xMax, numPts)
+    y = poly_eval(coeffs, x)
 
     ## OUTPUT
     print(eqn)  # Print the equation to the console
 
     # Plot the polynomial
-    #plt.plot(x,y)
-    #plt.grid(True)
-    #plt.show()
+    plt.plot(x, y)
+    plt.grid(True)
+    plt.show()
     # plt.ylim(-5, 5)   # Uncomment if you need to adjust the y-scale of your plot
 
-test()
+run()
