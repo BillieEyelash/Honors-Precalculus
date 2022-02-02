@@ -1,4 +1,5 @@
-## Ria Talwar, m d, 2022
+## Ria Talwar, Honors Precalculus, February 1, 2022
+## Assignment 2: Polynomial Derivatives
 ## Find the derivative of a polynomial
 
 '''
@@ -71,16 +72,17 @@ def get_coeffs():
     Return: Array coefficients
     '''
     coeffs = []
-    inp = ' '
     i = 0
-    while input != '':
+    while True:     # Loop forever unless break activated within loop
         inp = input('Enter the coefficient for x^' + str(i) + ' or hit ENTER to stop: ')
-        try:
+        try:    # See if user entered valid number and add to array
             inp = int(inp)
             coeffs.append(inp)
         except:
-            if inp == '':
+            if inp == '':   # Break if user hits enter
                 break
+            else:           # Take care of other non-numerical input
+                continue
         i += 1
     return np.array(coeffs)
 
