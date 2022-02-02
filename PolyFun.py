@@ -66,12 +66,23 @@ def poly_diff(coeffs):
 
 def get_coeffs():
     '''
-    Description:
+    Description: Get the coefficients of a polynomial from user
     Parameters: Void
     Return: Array coefficients
     '''
-    coeffs = np.array([])
-    return coeffs
+    coeffs = []
+    inp = ' '
+    i = 0
+    while input != '':
+        inp = input('Enter the coefficient for x^' + str(i) + ' or hit ENTER to stop: ')
+        try:
+            inp = int(inp)
+            coeffs.append(inp)
+        except:
+            if inp == '':
+                break
+        i += 1
+    return np.array(coeffs)
 
 
 def test_poly_to_str():
@@ -112,7 +123,8 @@ def run():
 
     # Coefficients of polynomial from 0th to nth; eventually this will be replaced
     # by a call to get_coeffs()
-    coeffs = np.array([0, 0, 1])
+    coeffs = get_coeffs()
+    #np.array([0, 0, 1])
 
     # Parameters for plotting
     xMin = -10
@@ -139,4 +151,4 @@ def run():
     plt.show()
     # plt.ylim(-5, 5)   # Uncomment if you need to adjust the y-scale of your plot
 
-test()
+run()
