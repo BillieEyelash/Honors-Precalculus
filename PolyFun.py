@@ -65,6 +65,19 @@ def poly_diff(coeffs):
     deriv = np.delete(deriv, 0)
     return deriv
 
+def poly_multiply(coeffs1, coeffs2):
+    '''
+    Description: Multiply two polynomials together
+    Parameters: Array coeffecients of p1, Array coeffecients of p2
+    Return: Array new coefficients
+    '''
+    newCoeffs = [0] * (len(coeffs1) + len(coeffs2) - 1)     # Determine number of new coefficients
+    for i in range(len(coeffs1)):
+        for j in range(len(coeffs2)):
+            x = i + j                                       # Get degree of current coeff
+            newCoeffs[x] += coeffs1[i] * coeffs2[j]         # Add new value to current coeff at index
+    return np.array(newCoeffs)                              # Convert to np array and return
+
 def get_coeffs():
     '''
     Description: Get the coefficients of a polynomial from user
@@ -111,6 +124,14 @@ def test_poly_diff():
     print(poly_diff(np.array([3, 2, 1])) == np.array([2, 2]))
     print(poly_diff(np.array([3, 2, 1, -3])) == np.array([2, 2, -9]))
 
+def test_poly_multiply():
+    print(poly_multiply(np.array([0]), np.array([0])) == np.array([0]))
+    print(poly_multiply(np.array([0, 1]), np.array([0])) == np.array([0, 0]))
+    print(poly_multiply(np.array([1, 2]), np.array([1])) == np.array([1, 2]))
+    print(poly_multiply(np.array([3, 2, 1]), np.array([1])) == np.array([3, 2, 1]))
+    print(poly_multiply(np.array([1, 2]), np.array([3, 4])) == np.array([3, 10, 8]))
+    print(poly_multiply(np.array([1, 2]), np.array([-3, 4])) == np.array([-3, -2, 8]))
+
 def test():
     print('poly_to_str')
     test_poly_to_str()
@@ -120,13 +141,10 @@ def test():
     test_poly_diff()
 
 
-def run():
+def run_derivative():
     ## INPUTS
-
-    # Coefficients of polynomial from 0th to nth; eventually this will be replaced
-    # by a call to get_coeffs()
+    print("INTRO TODO")
     coeffs = get_coeffs()
-    #np.array([0, 0, 1])
 
     # Parameters for plotting
     xMin = -10
@@ -151,6 +169,36 @@ def run():
     plt.plot(x, yd) # Plot the derivative
     plt.grid(True)
     plt.show()
-    # plt.ylim(-5, 5)   # Uncomment if you need to adjust the y-scale of your plot
 
-run()
+def run_multiply():
+    ## INPUTS
+    print('Enter coefficients for polynomial 1:')
+    coeffs1 = get_coeffs()
+
+    print('\nEnter coefficients for polynomial 2:')
+    coeffs2 = get_coeffs()
+
+    xMin = -10
+    xMax = 10
+    numPts = 200
+
+    ## CALCULATIONS
+    newCoeffs = poly_multiply(coeffs1, coeffs2)
+
+    x = np.linspace(xMin, xMax, numPts)
+
+    y1 = poly_eval(coeffs1, x)      # Get ycoords for polynomial 1
+    y2 = poly_eval(coeffs2, x)      # Get ycoords for polynomial 2
+    ynew = poly_eval(newCoeffs, x)  # Get ycoords for product
+
+    ## OUTPUTS
+    print('\n(' + poly_to_str(coeffs1) + ') * (' + poly_to_str(coeffs2) + ')')
+    print('= ' + poly_to_str(newCoeffs))
+
+    plt.plot(x, y1)     # Plot polynomial 1
+    plt.plot(x, y2)     # Plot polynomial 2
+    plt.plot(x, ynew)   # Plot the product
+    plt.grid(True)
+    plt.show()
+
+run_multiply()
