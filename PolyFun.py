@@ -89,7 +89,7 @@ def get_coeffs():
     while True:     # Loop forever unless break activated within loop
         inp = input('Enter the coefficient for x^' + str(i) + ' or hit ENTER to stop: ')
         try:    # See if user entered valid number and add to array
-            inp = int(inp)
+            inp = float(inp)
             coeffs.append(inp)
         except:
             if inp == '':   # Break if user hits enter
