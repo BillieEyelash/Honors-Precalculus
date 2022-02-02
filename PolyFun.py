@@ -2,22 +2,6 @@
 ## Assignment 2: Polynomial Derivatives
 ## Find the derivative of a polynomial
 
-'''
-1.  Add to the program outlined below so it prints the equation of the polynomial
-    and makes a plot of the curve.
-
-2.  Add to this program so that it calculates the derivative of the given polynomial,
-    displays the equation of the derivative, and plots the derivative on the
-    same graph as the original function.
-
-3.  Add to this program so that it is interactive – it prompts the user
-    each time to enter the coefficients of the polynomial.
-
-4.  Think carefully about writing additional functions: do not duplicate the
-    tasks that can be accomplished by functions that already exist
-    (e.g. don't write a diffToStr function!)
-'''
-
 ## Import Modules
 import numpy as np
 import matplotlib.pyplot as plt
@@ -143,7 +127,6 @@ def test():
 
 def run_derivative():
     ## INPUTS
-    print("INTRO TODO")
     coeffs = get_coeffs()
 
     # Parameters for plotting
@@ -201,4 +184,25 @@ def run_multiply():
     plt.grid(True)
     plt.show()
 
-run_multiply()
+def run():
+    print('MENU:')      # Provide options for user
+    print('1. Get the derivative of a polynomial')
+    print('2. Multiply two polynomials')
+
+    # Get user choice
+    inp = ''
+    while True:
+        inp = input('Pick an option by entering the corresponding number: ')
+        if inp in ['1', '2']:
+            break
+        else:
+            print('Invalid input.')
+    print()
+
+    # Run whatever user selected
+    if inp == '1':
+        run_derivative()
+    else:
+        run_multiply()
+
+run()
