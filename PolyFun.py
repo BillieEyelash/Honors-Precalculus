@@ -144,9 +144,11 @@ def run_derivative():
 
     deriv = poly_diff(coeffs)
     yd = poly_eval(deriv, x)
+    dequ = poly_to_str(deriv)
 
     ## OUTPUT
     print(eqn)  # Print the equation to the console
+    print(dequ) # Print the derivative to the console
 
     plt.plot(x, y)  # Plot the polynomial
     plt.plot(x, yd) # Plot the derivative
@@ -187,7 +189,7 @@ def run_multiply():
 def run():
     print('MENU:')      # Provide options for user
     print('1. Get the derivative of a polynomial')
-    print('2. Multiply two polynomials')
+    print('2. Multiply two polynomials\n')
 
     # Get user choice
     inp = ''
