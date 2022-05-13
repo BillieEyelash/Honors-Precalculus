@@ -184,6 +184,3 @@ def run():
     print("sin(" + str(x) + ") = " + str(sine))
     print("cos(" + str(x) + ") = " + str(cosine))
     print("tan(" + str(x) + ") = " + str(tangent))
-
-
-run()
