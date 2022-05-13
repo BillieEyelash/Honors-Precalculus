@@ -77,14 +77,14 @@ def cos(x):
         x += int(x / (2 * PI) - 1) * -2 * PI
 
     if x <= PI / 4 and x >= 0:
-        return cos_converted(x)             # [0, PI/4]
+        return cos_converted(x)               # [0, PI/4]
     if x <= PI / 2 and x > PI / 4:
-        return sin_converted(PI / 2 - x)    # (PI/4, PI/2]
+        return sin_converted(PI / 2 - x)      # (PI/4, PI/2]
     if x <= 2 * PI and x > 7 * PI / 4:
-        return cos_converted(2 * PI - x)    # (7PI/4, 2PI]
+        return cos_converted(2 * PI - x)      # (7PI/4, 2PI]
     if x <= 7 * PI / 4 and x > 3 * PI / 2:
-        return sin_converted(2 * PI - x)    # (3PI/2, 7PI/4]
-    return -1 * cos(x + PI)                 # (PI/2, 3PI/2]
+        return sin_converted(x - 3 * PI / 2) # (3PI/2, 7PI/4]
+    return -1 * cos(x + PI)                   # (PI/2, 3PI/2]
 
 
 def sin_converted(x):
@@ -109,7 +109,7 @@ def cos_converted(x):
     Parameters: Double x radians in domain [0, PI/4]
     Return: Double cosine of x radians
     '''
-    sinesqrd = sin(x) ** 2
+    sinesqrd = sin_converted(x) ** 2
     cosine = math.sqrt(1 - sinesqrd)
     return cosine
 
@@ -133,29 +133,44 @@ def test():
     Parameters: void
     Return: void
     '''
-    # TODO: WRITE TEST CASES FOR SINE, COSINE, AND TANGENT (AND FACTORIAL IG)
     print("SINE TESTS")
     print("sin(0) = " + str(sin(0)))
+    print("sin(PI/6) = " + str(sin(PI/6)))
     print("sin(PI/4) = " + str(sin(PI/4)))
+    print("sin(PI/3) = " + str(sin(PI/3)))
     print("sin(PI/2) = " + str(sin(PI/2)))
+    print("sin(2PI/3) = " + str(sin(2*PI/3)))
     print("sin(3PI/4) = " + str(sin(3*PI/4)))
+    print("sin(5PI/6) = " + str(sin(5*PI/6)))
     print("sin(PI) = " + str(sin(PI)))
+    print("sin(7PI/6) = " + str(sin(7*PI/6)))
     print("sin(5PI/4) = " + str(sin(5*PI/4)))
+    print("sin(4PI/3) = " + str(sin(4*PI/3)))
     print("sin(3PI/2) = " + str(sin(3*PI/2)))
+    print("sin(5PI/3) = " + str(sin(5*PI/3)))
     print("sin(7PI/4) = " + str(sin(7*PI/4)))
+    print("sin(11PI/6) = " + str(sin(11*PI/6)))
     print("sin(2PI) = " + str(sin(2*PI)))
     print("sin(5PI/2) = " + str(sin(5*PI/2)))
     print("sin(-PI/2) = " + str(sin(-PI/2)))
 
     print("\nCOSINE TESTS")
     print("cos(0) = " + str(cos(0)))
+    print("cos(PI/6) = " + str(cos(PI/6)))
     print("cos(PI/4) = " + str(cos(PI/4)))
+    print("cos(PI/3) = " + str(cos(PI/3)))
     print("cos(PI/2) = " + str(cos(PI/2)))
+    print("cos(2PI/3) = " + str(cos(2*PI/3)))
     print("cos(3PI/4) = " + str(cos(3*PI/4)))
+    print("cos(5PI/6) = " + str(cos(5*PI/6)))
     print("cos(PI) = " + str(cos(PI)))
+    print("cos(7PI/6) = " + str(cos(7*PI/6)))
     print("cos(5PI/4) = " + str(cos(5*PI/4)))
+    print("cos(4PI/3) = " + str(cos(4*PI/3)))
     print("cos(3PI/2) = " + str(cos(3*PI/2)))
+    print("cos(5PI/3) = " + str(cos(5*PI/3)))
     print("cos(7PI/4) = " + str(cos(7*PI/4)))
+    print("cos(11PI/6) = " + str(cos(11*PI/6)))
     print("cos(2PI) = " + str(cos(2*PI)))
     print("cos(5PI/2) = " + str(cos(5*PI/2)))
     print("cos(-PI/2) = " + str(cos(-PI/2)))
