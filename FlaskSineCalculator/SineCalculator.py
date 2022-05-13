@@ -3,7 +3,7 @@
 # Calculates the sine of a value using a polynomial approximation of the sine function
 
 import math
-import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
 
 PI = np.pi  # Store the value of pi in a global variable
@@ -127,6 +127,38 @@ def tan(x):
     return "undefined"
 
 
+def graph_point(cosine, sine):
+    '''
+    Description: Graph a point on the unit circle
+    Parameters: Double x-coord, Double y-coord
+    Return: void
+    '''
+    figure, axes = plt.subplots()
+    plt.title("Unit Circle")
+    # Add circle to graph
+    cc = plt.Circle((0, 0), 1, fill=False)
+    axes.set_aspect(1)
+    axes.add_artist(cc)
+
+    # Plot point and add text
+    plt.plot(cosine, sine, marker="o", markersize=5, markerfacecolor="blue")
+    plt.text(cosine + 0.1, sine + 0.1,"(" + str(round(cosine, 3)) + ", " + str(round(sine, 3)) + ")")
+
+    # Center axes
+    axes.spines['left'].set_position('center')
+    axes.spines['bottom'].set_position('center')
+    axes.spines['right'].set_color('none')
+    axes.spines['top'].set_color('none')
+
+    # Set up grid/axes
+    plt.grid(True)
+    plt.xlim(-1.5, 1.5)
+    plt.ylim(-1.5, 1.5)
+
+    plt.show()
+    return figure
+
+
 def test():
     '''
     Description: Test functions
@@ -199,3 +231,4 @@ def run():
     print("sin(" + str(x) + ") = " + str(sine))
     print("cos(" + str(x) + ") = " + str(cosine))
     print("tan(" + str(x) + ") = " + str(tangent))
+    graph_point(cosine, sine)
