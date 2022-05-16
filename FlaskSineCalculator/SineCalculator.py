@@ -33,12 +33,12 @@ def get_radians():
     Return: Double radians
     '''
     while True:
-        inp = input("Enter a number of radians within the domain [0, PI/4]: ")
+        inp = input('Enter a number of radians: ')
         try:
             inp = float(inp)
             return inp
         except: # Catch invalid input
-            print("Invalid input. Please enter valid number within the correct domain.")
+            print('Invalid input. Please enter valid number within the correct domain.')
 
 
 def sin(x):
@@ -124,7 +124,7 @@ def tan(x):
     cosine = cos(x)
     if cosine != 0:     # Catch undefined case
         return sine / cosine
-    return "undefined"
+    return 'undefined'
 
 
 def graph_point(cosine, sine):
@@ -134,15 +134,16 @@ def graph_point(cosine, sine):
     Return: void
     '''
     figure, axes = plt.subplots()
-    plt.title("Unit Circle")
+    plt.title('Unit Circle')
+
     # Add circle to graph
     cc = plt.Circle((0, 0), 1, fill=False)
     axes.set_aspect(1)
     axes.add_artist(cc)
 
     # Plot point and add text
-    plt.plot(cosine, sine, marker="o", markersize=5, markerfacecolor="blue")
-    plt.text(cosine + 0.1, sine + 0.1,"(" + str(round(cosine, 3)) + ", " + str(round(sine, 3)) + ")")
+    plt.plot(cosine, sine, marker='o', markersize=5, markerfacecolor='blue')
+    plt.text(cosine + 0.1, sine + 0.1,'(' + str(round(cosine, 3)) + ', ' + str(round(sine, 3)) + ')')
 
     # Center axes
     axes.spines['left'].set_position('center')
@@ -165,47 +166,47 @@ def test():
     Parameters: void
     Return: void
     '''
-    print("SINE TESTS")
-    print("sin(0) = " + str(sin(0)))
-    print("sin(PI/6) = " + str(sin(PI/6)))
-    print("sin(PI/4) = " + str(sin(PI/4)))
-    print("sin(PI/3) = " + str(sin(PI/3)))
-    print("sin(PI/2) = " + str(sin(PI/2)))
-    print("sin(2PI/3) = " + str(sin(2*PI/3)))
-    print("sin(3PI/4) = " + str(sin(3*PI/4)))
-    print("sin(5PI/6) = " + str(sin(5*PI/6)))
-    print("sin(PI) = " + str(sin(PI)))
-    print("sin(7PI/6) = " + str(sin(7*PI/6)))
-    print("sin(5PI/4) = " + str(sin(5*PI/4)))
-    print("sin(4PI/3) = " + str(sin(4*PI/3)))
-    print("sin(3PI/2) = " + str(sin(3*PI/2)))
-    print("sin(5PI/3) = " + str(sin(5*PI/3)))
-    print("sin(7PI/4) = " + str(sin(7*PI/4)))
-    print("sin(11PI/6) = " + str(sin(11*PI/6)))
-    print("sin(2PI) = " + str(sin(2*PI)))
-    print("sin(5PI/2) = " + str(sin(5*PI/2)))
-    print("sin(-PI/2) = " + str(sin(-PI/2)))
+    print('SINE TESTS')
+    print('sin(0) = ' + str(sin(0)))
+    print('sin(PI/6) = ' + str(sin(PI/6)))
+    print('sin(PI/4) = ' + str(sin(PI/4)))
+    print('sin(PI/3) = ' + str(sin(PI/3)))
+    print('sin(PI/2) = ' + str(sin(PI/2)))
+    print('sin(2PI/3) = ' + str(sin(2*PI/3)))
+    print('sin(3PI/4) = ' + str(sin(3*PI/4)))
+    print('sin(5PI/6) = ' + str(sin(5*PI/6)))
+    print('sin(PI) = ' + str(sin(PI)))
+    print('sin(7PI/6) = ' + str(sin(7*PI/6)))
+    print('sin(5PI/4) = ' + str(sin(5*PI/4)))
+    print('sin(4PI/3) = ' + str(sin(4*PI/3)))
+    print('sin(3PI/2) = ' + str(sin(3*PI/2)))
+    print('sin(5PI/3) = ' + str(sin(5*PI/3)))
+    print('sin(7PI/4) = ' + str(sin(7*PI/4)))
+    print('sin(11PI/6) = ' + str(sin(11*PI/6)))
+    print('sin(2PI) = ' + str(sin(2*PI)))
+    print('sin(5PI/2) = ' + str(sin(5*PI/2)))
+    print('sin(-PI/2) = ' + str(sin(-PI/2)))
 
-    print("\nCOSINE TESTS")
-    print("cos(0) = " + str(cos(0)))
-    print("cos(PI/6) = " + str(cos(PI/6)))
-    print("cos(PI/4) = " + str(cos(PI/4)))
-    print("cos(PI/3) = " + str(cos(PI/3)))
-    print("cos(PI/2) = " + str(cos(PI/2)))
-    print("cos(2PI/3) = " + str(cos(2*PI/3)))
-    print("cos(3PI/4) = " + str(cos(3*PI/4)))
-    print("cos(5PI/6) = " + str(cos(5*PI/6)))
-    print("cos(PI) = " + str(cos(PI)))
-    print("cos(7PI/6) = " + str(cos(7*PI/6)))
-    print("cos(5PI/4) = " + str(cos(5*PI/4)))
-    print("cos(4PI/3) = " + str(cos(4*PI/3)))
-    print("cos(3PI/2) = " + str(cos(3*PI/2)))
-    print("cos(5PI/3) = " + str(cos(5*PI/3)))
-    print("cos(7PI/4) = " + str(cos(7*PI/4)))
-    print("cos(11PI/6) = " + str(cos(11*PI/6)))
-    print("cos(2PI) = " + str(cos(2*PI)))
-    print("cos(5PI/2) = " + str(cos(5*PI/2)))
-    print("cos(-PI/2) = " + str(cos(-PI/2)))
+    print('\nCOSINE TESTS')
+    print('cos(0) = ' + str(cos(0)))
+    print('cos(PI/6) = ' + str(cos(PI/6)))
+    print('cos(PI/4) = ' + str(cos(PI/4)))
+    print('cos(PI/3) = ' + str(cos(PI/3)))
+    print('cos(PI/2) = ' + str(cos(PI/2)))
+    print('cos(2PI/3) = ' + str(cos(2*PI/3)))
+    print('cos(3PI/4) = ' + str(cos(3*PI/4)))
+    print('cos(5PI/6) = ' + str(cos(5*PI/6)))
+    print('cos(PI) = ' + str(cos(PI)))
+    print('cos(7PI/6) = ' + str(cos(7*PI/6)))
+    print('cos(5PI/4) = ' + str(cos(5*PI/4)))
+    print('cos(4PI/3) = ' + str(cos(4*PI/3)))
+    print('cos(3PI/2) = ' + str(cos(3*PI/2)))
+    print('cos(5PI/3) = ' + str(cos(5*PI/3)))
+    print('cos(7PI/4) = ' + str(cos(7*PI/4)))
+    print('cos(11PI/6) = ' + str(cos(11*PI/6)))
+    print('cos(2PI) = ' + str(cos(2*PI)))
+    print('cos(5PI/2) = ' + str(cos(5*PI/2)))
+    print('cos(-PI/2) = ' + str(cos(-PI/2)))
 
 
 def run():
@@ -215,9 +216,8 @@ def run():
     Return: void
     '''
     # INPUT
-    # TODO: IMPROVE INSTRUCTIONS
-    print("Instructions:\nThis program will output the sine, cosine, and tangent of a given number of radians."
-        + "Enter a value to recieve the sine, cosine, and tangent of that value.\n")
+    print('Instructions:\nThis program will output the sine, cosine, and tangent of a given number of radians.'
+        + 'Enter a value to recieve the sine, cosine, and tangent of that value.\n')
 
     x = get_radians()
     print()
@@ -228,7 +228,7 @@ def run():
     tangent = tan(x)
 
     # OUTPUT
-    print("sin(" + str(x) + ") = " + str(sine))
-    print("cos(" + str(x) + ") = " + str(cosine))
-    print("tan(" + str(x) + ") = " + str(tangent))
+    print('sin(' + str(x) + ') = ' + str(sine))
+    print('cos(' + str(x) + ') = ' + str(cosine))
+    print('tan(' + str(x) + ') = ' + str(tangent))
     graph_point(cosine, sine)
