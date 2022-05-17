@@ -12,6 +12,7 @@ def index():
             rad = float(request.form.get('radians'))
         except:
             return render_template('index.html', error=True)
+
         sine = round(sin(rad), 3)
         cosine = round(cos(rad), 3)
         tangent = round(tan(rad), 3)

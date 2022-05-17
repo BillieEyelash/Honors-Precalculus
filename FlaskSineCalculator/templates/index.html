@@ -7,12 +7,14 @@
 {% block body %}
 
 <div class="card m-5" style="width: 24rem;">
-    <div class="card-body">
-      {% if error %}
-        <div class="alert alert-danger" role="alert">
-          Invalid input!
-        </div>
-      {% endif %}
+  <div class="card-body">
+
+    {% if error %}
+      <div class="alert alert-danger" role="alert">
+        Invalid input!
+      </div>
+    {% endif %}
+
     <h5 class="card-title">Calculate Trig Function Values</h5>
     <h6 class="card-subtitle mb-2 text-muted">
       <p>
@@ -43,6 +45,7 @@
           </tr>
         </tbody>
       </table>
+
     </div>
   </div>
 </div>

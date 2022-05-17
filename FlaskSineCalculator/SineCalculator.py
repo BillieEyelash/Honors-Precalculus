@@ -156,7 +156,6 @@ def graph_point(cosine, sine):
     plt.xlim(-1.5, 1.5)
     plt.ylim(-1.5, 1.5)
 
-    plt.show()
     return figure
 
 
@@ -232,3 +231,4 @@ def run():
     print('cos(' + str(x) + ') = ' + str(cosine))
     print('tan(' + str(x) + ') = ' + str(tangent))
     graph_point(cosine, sine)
+    plt.show()
